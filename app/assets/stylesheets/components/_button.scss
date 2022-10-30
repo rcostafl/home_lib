@@ -1,0 +1,146 @@
+.btn-text-filled-blue{
+  padding: 10px 34px;
+  display: inline-block;
+  background-color: $blue;
+  color: white;
+  text-decoration: none;
+  border-radius: 11px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: 0.5s;
+  border: 1px solid transparent;
+
+  &:hover{
+    text-decoration: none;
+    background-color: $light-blue;
+    color: white;
+  }
+
+  &:active{
+    background-color: $purple;
+    text-decoration: none;
+    color: white;
+  }
+
+  &:disabled{
+    /*background-color: $color-lightgrey-rfb;
+    color: $color-grey-rfb;
+    border: 1px solid $color-grey-rfb;
+    opacity: 0.6;
+    font-weight: bolder;*/
+    opacity: 0.3;
+  }
+
+}
+
+.btn-text-filled-lightblue{
+  padding: 10px 34px;
+  display: inline-block;
+  background-color: $blue;
+  color: white;
+  text-decoration: none;
+  border-radius: 11px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: 0.5s;
+  border: 1px solid transparent;
+
+  &:hover{
+    text-decoration: none;
+    background-color: $color-b4-rfb;
+    color: $color-b-rfb;
+  }
+
+  &:active{
+    background-color: $color-b4-rfb;
+    text-decoration: none;
+    color: $color-b-rfb;
+  }
+
+}
+
+.btn-text-not-filled-blue{
+  padding: 10px 34px;
+  display: inline-block;
+  background-color: white;
+  color: $blue;
+  text-decoration: none;
+  border-radius: 11px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: 0.5s;
+  border: 1px solid $blue;
+
+  &:hover{
+    text-decoration: none;
+    color: $purple;
+    border: 1px solid $purple;
+  }
+
+  &:active{
+    background-color: $purple;
+    text-decoration: none;
+    color: white;
+  }
+
+}
+
+
+.btn-icon-blue-rfb{
+  right: 2px;
+  font-size: 17px;
+  background-color: #00205B;
+  color: #FFFFFF;
+  padding: 7px 10px 7px 10px;
+  border-radius: 7px;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: 0.5s;
+  border: 1px solid transparent;
+
+  &:hover{
+    text-decoration: none;
+    background-color: $color-b-rfb;
+    color: white;
+  }
+
+  &:active{
+    background-color: $color-b-rfb;
+    text-decoration: none;
+    color: white;
+  }
+
+}
+
+.btn-icon-lightblue-rfb{
+  right: 2px;
+  font-size: 17px;
+  background-color: $color-a4-rfb;
+  color: $color-a-rfb;
+  padding: 7px 10px 7px 10px;
+  border-radius: 7px;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: 0.5s;
+  border: 1px solid transparent;
+
+  &:hover{
+    text-decoration: none;
+    background-color: $color-b4-rfb;
+    color: $color-b-rfb;
+  }
+
+  &:active{
+    text-decoration: none;
+    background-color: $color-b4-rfb;
+    color: $color-b-rfb;
+  }
+
+}
