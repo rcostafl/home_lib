@@ -30,3 +30,30 @@ shelves.each{|s|
     )
     puts "Shelf #{new_shelf.name} created!"
 }
+
+puts "\n\n##############"
+puts "Creating Movies"
+Movie.destroy_all
+movies = []
+m1 = {
+    "title" => "o poderoso chefão", 
+    "director"=>"scoreese"
+}
+
+m2 = {
+    "title" => "o poderoso chefão II", 
+    "director"=>"scoreese"
+}
+
+movies.push(m1)
+movies.push(m2)
+
+movies.each{|m|
+    new_movie = Movie.create!(
+        title: m["title"],
+        director: m["director"],
+        shelf: Shelf.all.sample(1).first,
+        user: User.all.sample(1).first
+    )
+    puts "Movie #{new_movie.title} created!"
+}

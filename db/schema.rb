@@ -18,9 +18,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_30_001228) do
     t.string "title"
     t.string "director"
     t.bigint "shelf_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["shelf_id"], name: "index_movies_on_shelf_id"
+    t.index ["user_id"], name: "index_movies_on_user_id"
   end
 
   create_table "shelves", force: :cascade do |t|
@@ -42,4 +44,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_30_001228) do
   end
 
   add_foreign_key "movies", "shelves"
+  add_foreign_key "movies", "users"
 end
