@@ -29,6 +29,9 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
+#gem 'webpacker', '~> 4.0'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

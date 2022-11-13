@@ -5,6 +5,7 @@ class PagesController < ApplicationController
     end
 
     def my_page
+        redirect_to(movies_path()) # I can pass a variable here. ex: @movie
     end
 
     def components
