@@ -1,6 +1,9 @@
 class MoviesController < ApplicationController
 
     def index
+        @movies = Movie.all
+
+        render(template: "pages/my_page")
     end
     
     def show

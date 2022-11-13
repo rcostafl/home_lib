@@ -1,1 +1,7 @@
-jhg hjgjhgkjg
+<%=params%>
+
+my_page<br>
+
+<% if params[:controller].eql?("movies") && params[:action].eql?("index") %>
+  <%= render(template: "movies/index") %>
+<% end %>

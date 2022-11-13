@@ -6,6 +6,10 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+Movie.destroy_all
+Shelf.destroy_all
+User.destroy_all
+
 puts "\n\n##############"
 puts "Creating users"
 User.destroy_all
@@ -37,12 +41,14 @@ Movie.destroy_all
 movies = []
 m1 = {
     "title" => "o poderoso chefão", 
-    "director"=>"scoreese"
+    "director"=>"scoreese",
+    "image_link"=>"https://br.web.img3.acsta.net/c_310_420/medias/nmedia/18/90/93/20/20120876.jpg"
 }
 
 m2 = {
     "title" => "o poderoso chefão II", 
-    "director"=>"scoreese"
+    "director"=>"scoreese",
+    "image_link"=>"https://br.web.img3.acsta.net/c_310_420/medias/nmedia/18/90/93/20/20120876.jpg"
 }
 
 movies.push(m1)
@@ -53,7 +59,8 @@ movies.each{|m|
         title: m["title"],
         director: m["director"],
         shelf: Shelf.all.sample(1).first,
-        user: User.all.sample(1).first
+        user: User.all.sample(1).first,
+        image_link: m["image_link"]
     )
     puts "Movie #{new_movie.title} created!"
 }
