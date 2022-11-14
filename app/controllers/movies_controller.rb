@@ -10,6 +10,8 @@ class MoviesController < ApplicationController
     end
 
     def new
+        @movie = Movie.new()
+        @shelves = Shelf.all()
     end
 
     def create

@@ -1,0 +1,10 @@
+  <%= simple_form_for(@movie) do |f| %>
+    <%= f.input :title, label: 'Título:', autofocus: true %>
+    <%= f.input :director, label: 'Diretor: ' %>
+    <%= f.association :shelf,
+                    as: :select,
+                    label: 'prateleira',
+                    hint: 'selecione a prateleira em que o livro está!' %>
+    <%= f.button :button, type:"reset", value: "Limpar", class:"btn-text-lightblue-rfb", style:"width: 168px;" do %> Limpar <% end %>
+    <%= f.submit value: "Salvar", class:"btn-text-blue-rfb", style:"width: 168px;"%>
+  <% end %>

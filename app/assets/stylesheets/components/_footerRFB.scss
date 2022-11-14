@@ -1,5 +1,5 @@
 .footer {
-    background-color: #7f8fad;
+    background-color: $blue;
     color: #fff;
     margin-top: 20px;
     padding: 0 10px;
@@ -9,6 +9,7 @@
     height: inherit;
     bottom: 0;
     position: fixed;
+    height: 33px;
 }
 
 .footer p {
