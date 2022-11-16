@@ -1,0 +1,22 @@
+.outside-square {
+    
+    div {
+        img {
+            max-width: 237px;
+            width: 237px;
+            min-width: 237px;
+        
+            max-height: 320px;
+            height: 320px;
+            min-height: 320px;
+        }
+    }
+
+    div form {
+        margin-left: 12px;
+    }
+    div form div div div label {
+        display: block;
+        font-weight: bold;
+    }
+}

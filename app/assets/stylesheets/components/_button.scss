@@ -153,7 +153,7 @@
   position: fixed;
   bottom: 9px;
   left: 50%;
-  border: 3px solid $light-blue;
+  border: 3px solid white;
   border-radius:50px;
   
   max-width:63px;
@@ -161,7 +161,7 @@
   max-height:63px;
   min-height:63px;
   
-  text-align:center;  
+  text-align: center;  
   color: white;
   background-color: $light-blue;
   
@@ -171,6 +171,14 @@
 
   &:hover {
     background-color: $green;
-    border-color: $green;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+
+    &hover {
+      background-color: inherit;
+    }
   }
 }

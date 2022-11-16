@@ -15,10 +15,22 @@ class MoviesController < ApplicationController
     end
 
     def create
+        #byebug
+        @movie = Movie.new(get_movie_par)
+        @movie.user = current_user
+
+        if @movie.save
+            redirect_to movies_path
+            flash[:success] = "Tudo certo, salvamos o filme!"
+        end
     end
 
     def destroy
     end
 
-    #search
+    private
+    def get_movie_par
+        params.require(:movie).permit(%i[title director shelf_id image_link])
+    end
+
 end
