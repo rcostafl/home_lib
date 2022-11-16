@@ -144,3 +144,41 @@
   }
 
 }
+
+.btn-float-plus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: fixed;
+  bottom: 9px;
+  left: 50%;
+  border: 3px solid white;
+  border-radius:50px;
+  
+  max-width:63px;
+  min-width:63px;
+  max-height:63px;
+  min-height:63px;
+  
+  text-align: center;  
+  color: white;
+  background-color: $light-blue;
+  
+  font-size: 49px;
+
+  z-index: 9000;
+
+  &:hover {
+    background-color: $green;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+
+    &hover {
+      background-color: inherit;
+    }
+  }
+}
