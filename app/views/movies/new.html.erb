@@ -2,7 +2,13 @@
 <div style="position: relative">
     <div class="outside-square d-flex">
         <div>
-            <img src="https://br.web.img3.acsta.net/c_310_420/medias/nmedia/18/90/93/20/20120876.jpg">
+            <% if @movie.image_link.nil? %>
+                
+                <%= image_tag(Movie.get_default_image_link, :alt => @movie.title) %>
+                
+            <%else%>
+                <%= image_tag(Movie.image_link, :alt => @movie.title)%>
+            <%end%>
         </div>
         <div>
             <%= simple_form_for(@movie) do |f| %>
