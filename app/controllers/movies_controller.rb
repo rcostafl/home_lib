@@ -15,7 +15,17 @@ class MoviesController < ApplicationController
     end
 
     def update
-        byebug
+
+        movie = Movie.find(params[:id])
+        movie.update(get_movie_par)
+      
+        if movie.save
+            redirect_to edit_movie_path(movie)
+            flash[:success] = "Tudo certo! Salvamos a alteração!!"
+        else
+            flash[:alert] = "Hummm, tivemos um probleminha: não consegui salvar!"
+            render :edit
+        end
     end
 
     def new

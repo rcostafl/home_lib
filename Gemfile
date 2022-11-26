@@ -19,7 +19,7 @@ gem "puma", "~> 5.0"
 
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "jsbundling-rails"
-
+#
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
 
@@ -30,7 +30,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-#gem 'webpacker', '~> 4.0'
+#gem 'webpacker', "~> 4.0"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
@@ -82,3 +82,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "importmap-rails", "~> 1.1"

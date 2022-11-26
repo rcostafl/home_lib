@@ -1,3 +1,18 @@
+<script>
+function enable_disable_edition(enableEditMode){
+    window.alert(!enableEditMode)
+    document.getElementById('movie_title').disabled      = !enable_disable_edition 
+    window.alert(document.getElementById('movie_title').disabled)
+    document.getElementById('movie_director').disabled   = !enable_disable_edition 
+    document.getElementById('movie_shelf_id').disabled   = !enable_disable_edition 
+    document.getElementById('movie_image_link').disabled = !enable_disable_edition 
+    document.getElementsByName('cancel')[0].disabled     = !enable_disable_edition 
+    document.getElementsByName('commit')[0].disabled     = !enable_disable_edition  
+    document.getElementsByName('edit')[0].disabled       = enable_disable_edition 
+
+
+}
+</script>
 <div style="position: relative">
     <div class="outside-square d-flex">
         <div>
@@ -18,12 +33,12 @@
                 
                 <div class="row">
                     <div class="col-sm-5">
-                        <%= f.input :title, label: 'Título:', autofocus: true, input_html:{class: "form-control"} %>
+                        <%= f.input :title, label: 'Título:', autofocus: true, input_html:{class: "form-control"}, disabled: true %>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-5">
-                        <%= f.input :director, label: 'Diretor: ', input_html:{class: "form-control"} %>
+                        <%= f.input :director, label: 'Diretor: ', input_html:{class: "form-control"}, disabled: true %>
                     </div>
                 </div>
                 <div class="row">
@@ -31,20 +46,22 @@
                         <%= f.association :shelf,
                             as: :select,
                             label: 'prateleira',
-                            input_html: {class: "form-control"} %>
+                            input_html: {class: "form-control"},
+                            disabled: true %>
                     </div>
                 </div>
                 <div class="row">        
                     <div class="col-sm-5">
                         <%= f.input :image_link, label: 'Imagem (link): ',
-                        input_html: {class: "form-control"}%>
+                        input_html: {class: "form-control"},
+                        disabled: true%>
                     </div>
                 </div>
                 <div class="row d-flex mt-2">        
                     <div class="col-sm-5 d-flex">
-                        <%= f.button :button, type:"reset", value: "Limpar", class:"btn btn-outline-dark btn-sm", style:"width: 168px;" do %> Limpar <% end %>
-                        <%= f.submit value: "Salvar", class:"btn btn-outline-dark btn-sm", style:"width: 168px;"%>
-                        <%= f.button :button, value: "Editar", class:"btn btn-outline-dark btn-sm", style:"width: 168px;" do %> Editar <% end %>
+                        <%= f.button :button, type:"button", name: "cancel", onclick: "enable_disable_edition(false);", value: "Cancelar", class:"btn btn-outline-dark btn-sm", style:"width: 168px;", disabled: true do %> Cancelar <% end %>
+                        <%= f.submit value: "Salvar", class:"btn btn-outline-dark btn-sm", style:"width: 168px;", disabled: true%>
+                        <%= f.button :button, name: "edit", type:"button", onclick: "enable_disable_edition(true);", value: "Editar", class:"btn btn-outline-dark btn-sm", style:"width: 168px;" do %> Editar <% end %>
                         
                     </div>            
                 </div>

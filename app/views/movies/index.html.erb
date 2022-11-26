@@ -2,7 +2,7 @@
 
     <% @movies.each{|movie| %>
 
-        <%= link_to movie_path(movie) do%>
+        <%= link_to edit_movie_path(movie) do%>
             <div class="basic-card">
                 <img width="136" height="184" src=<%= movie.image_link.present? ? movie.image_link : Movie.get_default_image_link %>>
                 <span>    
