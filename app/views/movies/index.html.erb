@@ -2,18 +2,20 @@
 
     <% @movies.each{|movie| %>
 
-        <div class="basic-card">
-            <img width="136" height="184" src=<%= movie.image_link.present? ? movie.image_link : Movie.get_default_image_link %>>
-            <span>    
-                <div class="card_title p-1">
-                    <%="#{movie.title}"%>
-                </div>
-                <div class="card_text p-1 mt-4">
-                    <p><%="Prateleira: #{movie.shelf.name}"%> <br>
-                    <p><%= "Ano: XXXX"%>
-                </div>            
-            </span>    
-        </div>
+        <%= link_to edit_movie_path(movie) do%>
+            <div class="basic-card">
+                <img width="136" height="184" src=<%= movie.image_link.present? ? movie.image_link : Movie.get_default_image_link %>>
+                <span>    
+                    <div class="card_title p-1">
+                        <%="#{movie.title}"%>
+                    </div>
+                    <div class="card_text p-1 mt-4">
+                        <p><%="Prateleira: #{movie.shelf.name}"%> <br>
+                        <p><%= "Ano: XXXX"%>
+                    </div>            
+                </span>    
+            </div>
+        <%end%>
 
     <%}%>
 </div>
