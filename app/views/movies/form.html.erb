@@ -21,8 +21,10 @@ function enable_disable_edition(enableEditMode){
 <div style="position: relative">
     <div class="outside-square d-flex">
         <div>
-            <% if @movie.image_link.nil? %>
-                
+           <% byebug%>
+
+            <% if !@movie.image_link.present? %>
+         
                 <%= image_tag(Movie.get_default_image_link, :alt => @movie.title) %>
                 
             <%else%>
