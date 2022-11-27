@@ -1,14 +1,19 @@
 <script>
 function enable_disable_edition(enableEditMode){
-    window.alert(!enableEditMode)
-    document.getElementById('movie_title').disabled      = !enable_disable_edition 
-    window.alert(document.getElementById('movie_title').disabled)
-    document.getElementById('movie_director').disabled   = !enable_disable_edition 
-    document.getElementById('movie_shelf_id').disabled   = !enable_disable_edition 
-    document.getElementById('movie_image_link').disabled = !enable_disable_edition 
-    document.getElementsByName('cancel')[0].disabled     = !enable_disable_edition 
-    document.getElementsByName('commit')[0].disabled     = !enable_disable_edition  
-    document.getElementsByName('edit')[0].disabled       = enable_disable_edition 
+    
+    if (enableEditMode){
+        disable = false
+    }else{
+        disable = true
+    }
+
+    document.getElementById('movie_title').disabled      = disable
+    document.getElementById('movie_director').disabled   = disable
+    document.getElementById('movie_shelf_id').disabled   = disable 
+    document.getElementById('movie_image_link').disabled = disable 
+    document.getElementsByName('cancel')[0].disabled     = disable 
+    document.getElementsByName('commit')[0].disabled     = disable  
+    document.getElementsByName('edit')[0].disabled       = !(disable)
 
 
 }
