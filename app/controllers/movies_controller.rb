@@ -44,6 +44,10 @@ class MoviesController < ApplicationController
         end
     end
 
+    def search
+        byebug
+    end
+
     def destroy
     end
 
