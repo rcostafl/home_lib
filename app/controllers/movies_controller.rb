@@ -34,7 +34,6 @@ class MoviesController < ApplicationController
     end
 
     def create
-        #byebug
         @movie = Movie.new(get_movie_par)
         @movie.user = current_user
 
@@ -45,7 +44,19 @@ class MoviesController < ApplicationController
     end
 
     def search
-        byebug
+        if params[:search].present?
+            @movies = Movie.joins(:shelf)
+                            .where("movies.title    ilike :search or\ 
+                                    movies.director ilike :search or\
+                                    shelves.name    ilike :search",
+                                    search: "%#{params[:search]}%")
+            @filter_activated = true
+            # The below command renders only the view.
+            render :index
+        else
+            redirect_to(movies_path)
+        end
+
     end
 
     def destroy
