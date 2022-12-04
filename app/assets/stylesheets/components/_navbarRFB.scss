@@ -49,6 +49,18 @@
     border-radius: 4px;
     padding: inherit;
     height: 37px;
+    flex-wrap: nowrap;
+    padding-top:4px;
+    align-items: center;
+
+    #search {
+        height: 30px;
+        width: 426px;
+    }
+
+    #search_button {
+        height: 30px;
+    }
 }
 
 .navbar-default {

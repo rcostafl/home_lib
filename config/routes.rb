@@ -9,5 +9,10 @@ Rails.application.routes.draw do
   get '/pages/my_page'   , to: "pages#my_page"   , as: :my_page
   get '/pages/components', to: "pages#components", as: :components
   
-  resources :movies, only: %i[new create show edit update index destroy] 
+  resources :movies, only: %i[new create show edit update index destroy] do
+    collection do
+      get 'search'
+    end
+  end
+
 end

@@ -19,6 +19,21 @@
           <span class="sistema-descricao sistema-nome hidden-xs hidden-sm">Collections</span>
         <% end %>
       </div>
+      <%= form_with url: search_movies_path, method: :get, class: "form-inline my-2 my-lg-0" do |form| %> 
+
+        
+        <% # if the search is activated, the action will be "search" and the related text field will have a different css class %>
+        <% if params[:controller].eql?("movies") and params[:action].eql?("search") %>
+          <%= form.text_field :search, class: "form-control mr-sm-2 activated-form-control", type: "search", placeholder:"Search: Filtro Ativo" %>
+        <% else%>
+          <%= form.text_field :search, class: "form-control mr-sm-2", type: "search", placeholder:"Search" %>
+        <%end%>
+
+        <%= form.button class: "search-button" do%>
+          <i class="fa-solid fa-magnifying-glass"></i>
+        <%end%>
+        
+      <%end%>
       <div class="navbar-right text-right" id="menu-principal">
         <span class= "user-name"><%= current_user.email %></span>
         <ul class= "menu-cabecalho justify-content-center">
