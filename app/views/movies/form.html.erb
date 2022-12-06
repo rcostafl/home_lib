@@ -14,6 +14,7 @@ function enable_disable_edition(enableEditMode){
     document.getElementsByName('cancel')[0].disabled     = disable 
     document.getElementsByName('commit')[0].disabled     = disable  
     document.getElementsByName('edit')[0].disabled       = !(disable)
+    document.getElementsByName('excluir')[0].disabled       = !(disable)
 
 
 }
@@ -67,7 +68,7 @@ function enable_disable_edition(enableEditMode){
                         <%= f.button :button, type:"button", name: "cancel", onclick: "enable_disable_edition(false);", value: "Cancelar", class:"btn btn-outline-dark btn-sm", style:"width: 168px;", disabled: true do %> Cancelar <% end %>
                         <%= f.submit value: "Salvar", class:"btn btn-outline-dark btn-sm", style:"width: 168px;", disabled: true%>
                         <%= f.button :button, name: "edit", type:"button", onclick: "enable_disable_edition(true);", value: "Editar", class:"btn btn-outline-dark btn-sm", style:"width: 168px;" do %> Editar <% end %>
-                        
+                        <%= button_to  'Excluir', { :action => "destroy", :controller => "movies"},  method: :delete, class:"btn btn-outline-dark btn-sm", onclick: "return confirm('Vai mesmo excluir este filme?');", name:"excluir" %>
                     </div>            
                 </div>
             

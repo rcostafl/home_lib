@@ -60,6 +60,15 @@ class MoviesController < ApplicationController
     end
 
     def destroy
+        @movie = Movie.find(params[:id])
+
+        if movie.destroy
+            flash[:success] = "Tudo certo! Apagamos o filme!"
+            redirect_to movies_path
+        else
+            flash[:alert] = "Tivemos um problema e não conseguimos excluir o filme!"
+            render edit_movie_path(@movie)
+        end            
     end
 
     private
