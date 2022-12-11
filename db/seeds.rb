@@ -9,6 +9,7 @@
 Movie.destroy_all
 Shelf.destroy_all
 User.destroy_all
+Director.destroy_all
 
 puts "\n\n##############"
 puts "Creating users"
@@ -36,19 +37,35 @@ shelves.each{|s|
 }
 
 puts "\n\n##############"
+puts "Creating directors"
+directors = ["Quentin tarantino","Martin Scorsese", "Steven Spielberg"]
+
+directors.each{|d|
+    new_director = Director.create!(
+        name: d
+    )
+    puts "Director #{new_director.name} created!"
+}
+
+puts "\n\n##############"
 puts "Creating Movies"
 Movie.destroy_all
 movies = []
 m1 = {
     "title" => "o poderoso chefão", 
-    "director"=>"scoreese",
-    "image_link"=>"https://br.web.img3.acsta.net/c_310_420/medias/nmedia/18/90/93/20/20120876.jpg"
+    "director"=> Director.all.sample(1).first,
+    "image_link"=>"https://br.web.img3.acsta.net/c_310_420/medias/nmedia/18/90/93/20/20120876.jpg",
+    "shelf" => Shelf.all.sample(1).first,
+    "user" => User.all.sample(1).first
+
 }
 
 m2 = {
     "title" => "o poderoso chefão II", 
-    "director"=>"scoreese",
-    "image_link"=>"https://br.web.img3.acsta.net/c_310_420/medias/nmedia/18/90/93/20/20120876.jpg"
+    "director"=> Director.all.sample(1).first,
+    "image_link"=>"https://br.web.img3.acsta.net/c_310_420/medias/nmedia/18/90/93/20/20120876.jpg",
+    "shelf" => Shelf.all.sample(1).first,
+    "user" => User.all.sample(1).first
 }
 
 movies.push(m1)

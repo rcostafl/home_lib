@@ -10,18 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_13_180723) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_11_003053) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "directors", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "movies", force: :cascade do |t|
     t.string "title"
-    t.string "director"
     t.bigint "shelf_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_link"
+    t.integer "director_id"
     t.index ["shelf_id"], name: "index_movies_on_shelf_id"
     t.index ["user_id"], name: "index_movies_on_user_id"
   end
