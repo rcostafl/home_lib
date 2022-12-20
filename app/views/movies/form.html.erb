@@ -1,4 +1,8 @@
 <script>
+function delete_record(){
+    document.getElementById("destroy_button").click()
+}
+
 function enable_disable_edition(enableEditMode){
     
     if (enableEditMode){
@@ -7,25 +11,29 @@ function enable_disable_edition(enableEditMode){
         disable = true
     }
 
-    document.getElementById('movie_title').disabled      = disable
-    document.getElementById('movie_director').disabled   = disable
-    document.getElementById('movie_shelf_id').disabled   = disable 
-    document.getElementById('movie_image_link').disabled = disable 
-    document.getElementsByName('cancel')[0].disabled     = disable 
-    document.getElementsByName('commit')[0].disabled     = disable  
-    document.getElementsByName('edit')[0].disabled       = !(disable)
+    document.getElementById('movie_title').disabled         = disable
+    document.getElementById('movie_director_id').disabled   = disable
+    document.getElementById('movie_shelf_id').disabled      = disable 
+    document.getElementById('movie_image_link').disabled    = disable 
+    document.getElementsByName('cancel')[0].disabled        = disable 
+    document.getElementsByName('commit')[0].disabled        = disable  
+    document.getElementsByName('edit')[0].disabled          = !(disable)
     document.getElementsByName('excluir')[0].disabled       = !(disable)
 
 
 }
 </script>
+
+<% if params['action'].eql?("new")%>
+    <% disabled = false %>
+<% else %>
+    <% disabled = true %>
+<%end %>
 <div style="position: relative">
     <div class="outside-square d-flex">
         <div>
             <% if !@movie.image_link.present? %>
-         
                 <%= image_tag(Movie.get_default_image_link, :alt => @movie.title) %>
-                
             <%else%>
                 <%= image_tag(@movie.image_link, :alt => @movie.title)%>
             <%end%>
@@ -33,18 +41,20 @@ function enable_disable_edition(enableEditMode){
         <div>
 
             <%= simple_form_for(@movie) do |f| %>
-                <% if params[:controller].eql?("movies") && params[:action].eql?("show") %>
-                    <input type="hidden" name="_method" value="patch" autocomplete="off">
-                <% end%>
+                
                 
                 <div class="row">
                     <div class="col-sm-5">
-                        <%= f.input :title, label: 'Título:', autofocus: true, input_html:{class: "form-control"}, disabled: true %>
+                        <%= f.input :title, label: 'Título:', autofocus: true, input_html:{class: "form-control"}, disabled: disabled %>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-5">
-                        <%= f.input :director, label: 'Diretor: ', input_html:{class: "form-control"}, disabled: true %>
+                        <%= f.association :director,
+                            as: :select,
+                            label: 'Diretor.:',
+                            input_html: {class: "form-control"},
+                            disabled: disabled %>
                     </div>
                 </div>
                 <div class="row">
@@ -53,26 +63,29 @@ function enable_disable_edition(enableEditMode){
                             as: :select,
                             label: 'prateleira',
                             input_html: {class: "form-control"},
-                            disabled: true %>
+                            disabled: disabled %>
                     </div>
                 </div>
                 <div class="row">        
                     <div class="col-sm-5">
                         <%= f.input :image_link, label: 'Imagem (link): ',
                         input_html: {class: "form-control"},
-                        disabled: true%>
+                        disabled: disabled %>
                     </div>
                 </div>
                 <div class="row d-flex mt-2">        
                     <div class="col-sm-5 d-flex">
-                        <%= f.button :button, type:"button", name: "cancel", onclick: "enable_disable_edition(false);", value: "Cancelar", class:"btn btn-outline-dark btn-sm", style:"width: 168px;", disabled: true do %> Cancelar <% end %>
-                        <%= f.submit value: "Salvar", class:"btn btn-outline-dark btn-sm", style:"width: 168px;", disabled: true%>
-                        <%= f.button :button, name: "edit", type:"button", onclick: "enable_disable_edition(true);", value: "Editar", class:"btn btn-outline-dark btn-sm", style:"width: 168px;" do %> Editar <% end %>
-                        <%= button_to  'Excluir', { :action => "destroy", :controller => "movies"},  method: :delete, class:"btn btn-outline-dark btn-sm", onclick: "return confirm('Vai mesmo excluir este filme?');", name:"excluir" %>
+                        <%= f.button :button, type:"button", name: "cancel", onclick: "enable_disable_edition(false);", value: "Cancelar", class:"btn btn-outline-dark btn-sm", style:"width: 168px;", disabled: "true" do %> Cancelar <% end %>
+                        <%= f.submit value: "Salvar", class:"btn btn-outline-dark btn-sm", style:"width: 168px;", disabled: disabled%>
+                        <%= f.button :button, name: "edit", type:"button", onclick: "enable_disable_edition(true);", value: "Editar", class:"btn btn-outline-dark btn-sm", style:"width: 168px;", disabled: !disabled do %> Editar <% end %>
+                        <%= f.button :button, name: "delete", type:"button", onclick: "delete_record()", value: "excluir", class:"btn btn-outline-dark btn-sm", style:"width: 168px;", disabled: !disabled do %> Excluir <% end %>
                     </div>            
                 </div>
             
             <% end %>
+            <% if @movie.id.present? %>      
+                <%= button_to  "DelImg", { action: "destroy", id: @movie.id }, method: :delete, onclick: "return confirm('Vai mesmo excluir este filme?');",  id: "destroy_button", style: "display: none;"%>
+            <% end%>
         </div>
     </div>
 </div>

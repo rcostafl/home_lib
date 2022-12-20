@@ -62,7 +62,7 @@ class MoviesController < ApplicationController
     def destroy
         @movie = Movie.find(params[:id])
 
-        if movie.destroy
+        if @movie.destroy
             flash[:success] = "Tudo certo! Apagamos o filme!"
             redirect_to movies_path
         else
@@ -73,7 +73,7 @@ class MoviesController < ApplicationController
 
     private
     def get_movie_par
-        params.require(:movie).permit(%i[title director shelf_id image_link])
+        params.require(:movie).permit(%i[title director_id shelf_id image_link])
     end
 
 end
