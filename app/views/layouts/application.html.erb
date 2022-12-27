@@ -12,9 +12,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
+  <body onload="myFunc2();">
     <%= render 'shared/navbarRFB' %> <%#= render 'shared/navbar' %>
 
     <%= render 'shared/flashes' %>
