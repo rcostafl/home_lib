@@ -32,17 +32,12 @@ require("channels")
 
 //import { testeFunction, addEventListenerToEditButtom} from './s/index_controller.js';
 
-function myFunc2(){
-  alert('myFunc');
-  console.log("lk ajsfhlajkh fjkashfl askhf");
-}
-
-//import {myFunc} from 'testefile.js';
+import {mmmmm} from 'testefile.js';
 // UNCOMMENT
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   //testeFunction();
- // myFunc();
+  mmmmm();
 });
 

@@ -1,6 +1,6 @@
-const myFunc = () => {
+const mmmmm = () => {
     alert("blablabla");
   };
 
 
-export { myFunc }
+  module.exports =  mmmmm;
